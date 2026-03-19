@@ -1,0 +1,14 @@
+.card {
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 2 / 3;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  opacity: 0.8;
+}
+
+.image {
+  object-fit: cover;
+}
