@@ -67,7 +67,6 @@
   scrollbar-width: none;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  padding: 25px 0; /* 10px -> 25px: 拡大（scale 1.05）による欠けを考慮 */
 }
 
 .contents::-webkit-scrollbar {

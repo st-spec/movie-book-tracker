@@ -50,6 +50,14 @@
 }
 
 .rowContent {
-  padding: 8px 28px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 28px;
+  padding-right: 28px;
   scroll-padding-left: 28px;
+}
+
+/* Flexbox特有の padding-right が無視されるバグを吸収するため、最後の子要素にマージンを付与 */
+.rowContent > :last-child {
+  margin-right: 28px;
 }

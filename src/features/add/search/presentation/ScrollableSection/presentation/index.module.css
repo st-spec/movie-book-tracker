@@ -40,10 +40,17 @@
   overflow-x: auto;
   overflow-y: hidden; /* 縦スクロールを完全に根絶 */
   scrollbar-width: none;
-  padding: 0 5%;
+  /* 左右のパディングを上下と別に完全に分離保証（ショートハンド競合の回避） */
+  padding-left: 5%;
+  padding-right: 5%;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 5%;
+}
+
+/* Flexbox特有の padding-right が無視されるバグを吸収するため、最後の子要素にマージンを付与 */
+.cardWrapper > :last-child {
+  margin-right: 5%;
 }
 
 .cardWrapper::-webkit-scrollbar {

@@ -34,11 +34,11 @@ export const useSearch = () => {
   const isReachingEnd = size === totalPages
 
   const handleSelectMovie = (id: string | number) => {
-    router.push(`?movieId=${id}`)
+    router.push(`?movieId=${id}`, { scroll: false })
   }
 
   const handleCloseModal = () => {
-    router.push("?")
+    router.push("?", { scroll: false })
   }
 
   return {
