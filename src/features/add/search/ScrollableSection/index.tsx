@@ -1,5 +1,5 @@
 import MovieCard from "@/components/ui/MovieCard"
-import { Movie } from "@/types/movie"
+import { Movie } from "@/types/Movie"
 import styles from "./index.module.css"
 import { useRef, useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -7,7 +7,7 @@ import clsx from "clsx"
 
 type Props = {
   movies: Movie[]
-  onClick: (id: number) => void
+  onClick: (id: string) => void
 }
 
 const ScrollableSection = ({ movies, onClick }: Props) => {

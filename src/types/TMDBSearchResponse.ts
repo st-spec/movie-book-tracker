@@ -1,4 +1,4 @@
-import { Movie } from "./movie"
+import { Movie } from "./Movie"
 
 export type TMDBSearchResponse = {
   page: number

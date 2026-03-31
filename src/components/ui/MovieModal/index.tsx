@@ -22,7 +22,7 @@ type Tab = typeof TABS[number]
 
 const MovieModal = ({movieId, onClose}: Props) => {
   const { data } = useSWR(`/api/movie/${movieId}`, fetcher)
-  const { descriptionData, creditsData, providersData, videos, bestLogo, bestBackdrop } = data ?? {}
+  const { descriptionData, creditsData, providersData, videos, bestBackdrop } = data ?? {}
   const trailer = videos?.find((v: TMDBVideo) => v.type === "Trailer" && v.site === "YouTube")
   const jpProviders = providersData?.results?.JP
   const [activeTab, setActiveTab] = useState<Tab>("記録")
@@ -80,7 +80,7 @@ const MovieModal = ({movieId, onClose}: Props) => {
 
           {/* タブコンテンツ */}
           <div className={styles.tabContent}>
-            {activeTab === "記録" && <RecordTab movieId={movieId} />}
+            {activeTab === "記録" && <RecordTab movieId={movieId} title={descriptionData?.title} poster_path={descriptionData?.poster_path} />}
             {activeTab === "詳細" && <DetailTab overview={descriptionData?.overview} />}
             {activeTab === "キャスト" && <CastTab creditsData={creditsData} />}
             {activeTab === "配信" && <ProviderTab jpProviders={jpProviders} />}

@@ -3,9 +3,9 @@ import styles from "./index.module.css"
 import clsx from "clsx"
 
 type Props = {
-  id: number
+  id: string
   imageUrl: string
-  onClick: (id: number) => void
+  onClick: (id: string) => void
 }
 
 const MovieCard = ({ id, imageUrl, onClick }: Props) => {

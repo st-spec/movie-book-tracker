@@ -1,16 +1,17 @@
 "use client"
 
-import { Movie } from "@/types/movie"
+import { Movie } from "@/types/Movie"
 import Image from "next/image"
 import styles from "./index.module.css"
 import clsx from "clsx"
 
 type Props = {
   movie: Movie
-  onClick: (id: number) => void
+  onClick: (id: string) => void
 }
 
 const SearchResultCard = ({ movie, onClick }: Props) => {
+  console.log(movie)
   return(
     <div className={styles.card} onClick={() => {onClick(movie?.id)}}>
       <div className={styles.imageWrapper}>

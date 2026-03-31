@@ -40,7 +40,7 @@ const Search = () => {
   const lastPage = data?.[data.length - 1]
   const totalPages = lastPage?.data.total_pages ?? 0
 
-  const handleSelectMovie = (id: number) => {
+  const handleSelectMovie = (id: string) => {
     router.push(`?movieId=${id}`)
   }
 
@@ -53,7 +53,7 @@ const Search = () => {
         <div className={clsx(styles.resultsWrapper, "divide-y", "divide-yellow-400")}>
           {
           movies.map((movie) => {
-            return <SearchResultCard key={movie.id} movie={movie} onClick={(id) => handleSelectMovie(id)} />
+            return <SearchResultCard key={movie.id} movie={movie} onClick={handleSelectMovie} />
           })
           }
         {!(isLoading || (size === totalPages)) && (
@@ -70,11 +70,11 @@ const Search = () => {
           </div> */}
           <div className={styles.sectionWrapper}>
             <h3 className={styles.topic}>Popular</h3>
-            <ScrollableSection movies={recommendationsData?.popularData.results ?? []} onClick={(id) => handleSelectMovie(id)} />
+            <ScrollableSection movies={recommendationsData?.popularData.results ?? []} onClick={handleSelectMovie} />
           </div>
           <div className={styles.sectionWrapper}>
             <h3 className={styles.topic}>Coming soon</h3>
-            <ScrollableSection movies={recommendationsData?.upcopmingData.results ?? []} onClick={(id) => handleSelectMovie(id)} />
+            <ScrollableSection movies={recommendationsData?.upcopmingData.results ?? []} onClick={handleSelectMovie} />
           </div>
         </div>
       )}

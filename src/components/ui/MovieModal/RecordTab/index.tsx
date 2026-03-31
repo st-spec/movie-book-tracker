@@ -1,18 +1,12 @@
 import { useState } from "react"
 import styles from "./index.module.css"
-import clsx from "clsx"
 import { toast } from "sonner"
-
-type MovieRecord = {
-  movieId: string
-  rating: number
-  watchedDate: string
-  comment: string
-  createdAt: string
-}
+import { MovieRecord } from "@/types/MovieRecord"
 
 type Props = {
   movieId: string
+  title: string
+  poster_path: string
 }
 
 const getRecord = (movieId: string): MovieRecord | null => {
@@ -22,7 +16,7 @@ const getRecord = (movieId: string): MovieRecord | null => {
   } catch { return null }
 }
 
-const RecordTab = ({ movieId }: Props) => {
+const RecordTab = ({ movieId, title, poster_path }: Props) => {
   const record = getRecord(movieId)
   const [existingRecord, setExistingRecord] = useState<MovieRecord | null>(record)
   const [rating, setRating] = useState<number>(record?.rating ?? 0)
@@ -36,7 +30,7 @@ const RecordTab = ({ movieId }: Props) => {
       return
     }
     const newRecord: MovieRecord = {
-      movieId, rating, watchedDate, comment,
+      movieId, title, poster_path, rating, watchedDate, comment,
       createdAt: existingRecord?.createdAt ?? new Date().toISOString(),
     }
     const existing: MovieRecord[] = JSON.parse(localStorage.getItem("movieRecords") ?? "[]")
