@@ -24,21 +24,21 @@
 
 .left {
   left: 0px;
-  /* background: linear-gradient(to right, #18181b 40%, transparent); */
 }
 
 .right {
   right: 0px;
-  /* background: linear-gradient(to left, #18181b 40%, transparent); */
 }
 
-
 .cardWrapper {
-  height: 35vh;
+  /* 拡大（scale 1.05）分を吸収できるよう、中央揃えを維持しつつ高さをレスポンシブ（30vh）に復元 */
+  height: 30vh;
   display: flex;
+  align-items: center;
   gap: 12px;
   margin: 15px 0px 10px;
   overflow-x: auto;
+  overflow-y: hidden; /* 縦スクロールを完全に根絶 */
   scrollbar-width: none;
   padding: 0 5%;
   scroll-behavior: smooth;

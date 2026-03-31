@@ -2,7 +2,7 @@
 
 import SearchBar from "@/components/ui/SearchBar"
 import SearchResultCard from "./SearchResultCard"
-import ScrollableSection from "./ScrollableSection"
+import ScrollableSection from "./ScrollableSection/controller"
 import MovieModal from "@/components/ui/MovieModal"
 import { ChevronDown } from "lucide-react"
 import clsx from "clsx"
@@ -42,18 +42,19 @@ const SearchPresentation = ({
         <SearchBar value={query} onQueryChange={onQueryChange} />
       </div>
       {debounceQuery ? (
-        <div className={clsx(styles.resultsWrapper, "divide-y", "divide-yellow-400")}>
+        <div className={clsx(styles.resultsWrapper)}>
           {movies.map((movie) => (
             <SearchResultCard key={movie.id} movie={movie} onClick={onSelectMovie} />
           ))}
           {! (isLoading || isReachingEnd) && (
             <div className={styles.readMoreWrapper} onClick={onLoadMore}>
-              <ChevronDown className={styles.readMore} size={24} />
+              <span className={styles.readMoreText}>Read More</span>
+              <ChevronDown className={styles.readMoreIcon} size={20} />
             </div>
           )}
         </div>
       ) : (
-        <div className={styles.recommendationssWrapper}>
+        <div className={styles.recommendationsWrapper}>
           <div className={styles.sectionWrapper}>
             <h3 className={styles.topic}>Popular</h3>
             <ScrollableSection movies={recommendationsData?.popularData.results ?? []} onClick={onSelectMovie} />

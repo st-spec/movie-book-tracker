@@ -9,8 +9,9 @@
 .resultsWrapper {
   display: flex;
   flex-direction: column;
-  margin: 20px auto;
-  width: 65%;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 880px; /* 視線移動が最小限になり、あらすじが最も読みやすい幅 */
 }
 
 .topic {
@@ -24,11 +25,44 @@
   margin: 20px 0;
 }
 
-.readMoreWrapper {
+.recommendationsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 20px;
   width: 100%;
+}
+
+.readMoreWrapper {
+  width: fit-content;
+  margin: 40px auto 60px;
   display: flex;
   justify-content: center;
-  align-items:center;
-  height: 50px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 32px;
   cursor: pointer;
+  background: rgba(24, 24, 27, 0.4);
+  border: 1px solid rgba(251, 191, 36, 0.4); /* 通常時もアンバーの枠線を表示 */
+  border-radius: 99px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+}
+
+.readMoreWrapper:hover {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: #fbbf24;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.readMoreText {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #fbbf24;
+}
+
+.readMoreIcon {
+  color: #fbbf24;
 }

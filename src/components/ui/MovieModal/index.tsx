@@ -8,7 +8,7 @@ import { TMDBVideo } from "@/types/TMDBVideo"
 import { useState } from "react"
 import RecordTab from "./RecordTab"
 import DetailTab from "./DetailTab"
-import CastTab from "./CastTab"
+import CastTab from "./CastTab/controller"
 import ProviderTab from "./ProviderTab"
 
 type Props = {
@@ -30,9 +30,6 @@ const MovieModal = ({movieId, onClose}: Props) => {
   return(
     <main className={styles.modalWrapper} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.iconWrapper} onClick={onClose}>
-          <X className={clsx(styles.icon, styles.xButton)} size={26} />
-        </div>
         <div className={styles.leftContentsWrapper}> 
           <div className={styles.visualWrapper}>
             {trailer ? (<iframe
@@ -76,6 +73,9 @@ const MovieModal = ({movieId, onClose}: Props) => {
                 {tab}
               </button>
             ))}
+            <div className={styles.iconWrapper} onClick={onClose}>
+              <X className={clsx(styles.icon, styles.xButton)} size={24} />
+            </div>
           </div>
 
           {/* タブコンテンツ */}

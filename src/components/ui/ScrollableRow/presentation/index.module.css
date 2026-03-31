@@ -1,0 +1,79 @@
+.scrollableRow {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  opacity: 0; /* 通常時は非表示 */
+}
+
+/* コンテナホバー時にボタンを表示 */
+.scrollableRow:hover .iconWrapper {
+  opacity: 1;
+}
+
+/* md サイズ (標準) */
+.md .iconWrapper {
+  width: 60px;
+}
+.md .icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* sm サイズ (コンパクト) */
+.sm .iconWrapper {
+  width: 40px;
+}
+.sm .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.left {
+  left: 0;
+  background: linear-gradient(to right, rgba(24, 24, 27, 0.9) 0%, rgba(24, 24, 27, 0.5) 60%, transparent 100%);
+}
+
+.right {
+  right: 0;
+  background: linear-gradient(to left, rgba(24, 24, 27, 0.9) 0%, rgba(24, 24, 27, 0.5) 60%, transparent 100%);
+}
+
+.icon {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.iconWrapper:hover .icon {
+  transform: scale(1.2);
+}
+
+.contents {
+  display: flex;
+  align-items: center; /* 94% の高さのカードが拡大時に上下均等に広がるよう、中央に配置 */
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 25px 0; /* 10px -> 25px: 拡大（scale 1.05）による欠けを考慮 */
+}
+
+.contents::-webkit-scrollbar {
+  display: none;
+}
+
+.contents > * {
+  scroll-snap-align: start;
+}

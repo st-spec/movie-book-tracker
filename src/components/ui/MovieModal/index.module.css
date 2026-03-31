@@ -5,34 +5,49 @@
   width: 100%;
   height: 100vh;
   z-index: 100;
-  background-color: #000000b0;
+  background-color: rgba(0, 0, 0, 0.65); /* 暗さを落とし、モーダルのblurを際立たせる */
+  backdrop-filter: blur(4px); /* 背景自体も少しぼかす */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .modal {
-  width: 980px;
-  height: 520px;
-  background: #18181b;
+  width: 90vw;
+  max-width: 1000px;
+  height: 85vh;
+  max-height: 580px; /* 固定だった520pxから少し拡張し、柔軟に */
+  background: rgba(24, 24, 27, 0.85); /* フロストガラスのベース色 */
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* プレミアムな極薄境界 */
   border-radius: 12px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
   display: flex;
   position: relative;
+  overflow: hidden; /* 子要素のはみ出し防止 */
 }
 
 .iconWrapper {
-  position: absolute;
-  top: 12px;
-  right: 12px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* 親と同じ高さ（60px）で縦位置を完璧に同期 */
+  padding: 0 5px;
   cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.2s ease;
 }
 
 .iconWrapper:hover {
-  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .leftContentsWrapper {
   width: 55%;
+  height: 100%;
+  border-right: 1px solid rgba(255, 255, 255, 0.1); /* 視認性を上げたディバイダー */
+  overflow-y: auto; 
 }
 
 .movie {
@@ -66,60 +81,92 @@
 .descriptionWrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 10px 30px;
+  gap: 12px; /* 余白を少し広げて呼吸を持たせる */
+  padding: 16px 30px 30px;
   width: 100%;
 }
 
 .title {
   font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .listWrapper {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 4px 25px;
+  gap: 8px 25px; /* 行間を少し広げて読みやすく */
   font-size: 14px;
 }
 
 .listWrapper dt {
-  opacity: 0.6;
+  opacity: 0.5; /* 補助情報を少しだけ下げる */
 }
 
 .rightContentsWrapper {
-  width: 45%
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .tabsWrapper {
   width: 100%;
   display: flex;
   gap: 15px;
-  padding: 5px 20px 0;
-  border-bottom: #ffffff1f solid 1px;
+  height: 60px; /* 高さを明示し、真ん中揃えの基準を作る */
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 区切り線の視認性を向上 */
 }
 
 .tab {
-  height: 45px;
-  font-weight: bold;
+  height: 100%; /* 親の60pxと完全に同期 */
+  display: flex;
+  align-items: center; /* 縦位置をド真ん中に揃える */
+  font-weight: 600;
   padding: 0 16px;
   font-size: 14px;
   cursor: pointer;
+  color: rgba(255, 255, 255, 0.5); 
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: -1px; /* border-bottom に下線を重ねるため */
+}
+
+.tab:hover {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .activeTab {
-  border-bottom: #FDC700 solid 2px;
+  border-bottom: 2px solid #FDC700;
   color: #FDC700;
 }
 
 .tabContent {
   width: 100%;
-  height: 470px;
+  flex: 1; /* 余った高さをすべて使う */
   overflow-y: auto;
-  scrollbar-width: 0px;
   padding: 20px 0px;
-  border-bottom-right-radius: 12px;
 }
 
+/* スクロールのアフォーダンス（見えるが、邪魔しない美しさ） */
+.leftContentsWrapper::-webkit-scrollbar,
 .tabContent::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+}
+
+.leftContentsWrapper::-webkit-scrollbar-track,
+.tabContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.leftContentsWrapper::-webkit-scrollbar-thumb,
+.tabContent::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.leftContentsWrapper::-webkit-scrollbar-thumb:hover,
+.tabContent::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }

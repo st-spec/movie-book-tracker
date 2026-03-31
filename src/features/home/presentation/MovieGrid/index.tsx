@@ -1,5 +1,6 @@
 import MovieCard from "@/components/ui/MovieCard"
 import { Movie } from "@/types/Movie"
+import AddCard from "@/components/ui/AddCard"
 import styles from "./index.module.css"
 
 type Props = {
@@ -10,6 +11,7 @@ type Props = {
 const MovieGrid = ({movies, onClick}: Props) => {
   return (
     <div className={styles.grid}>
+      <AddCard />
       {movies.map((movie) => (
         <MovieCard key={movie.id} id={movie.id} imageUrl={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} onClick={onClick} />
       ))}

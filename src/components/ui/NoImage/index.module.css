@@ -1,0 +1,28 @@
+.noImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* 浮かび上がらせるのではなく、背景に沈み込ませる（控えめな質感） */
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05); /* 境界線も最小限に */
+  border-radius: inherit;
+  color: rgba(255, 255, 255, 0.4); /* アンバーを廃止しつつ、視認性を確保 */
+  user-select: none;
+}
+
+.icon {
+  stroke-width: 1.2;
+  opacity: 0.6; /* 0.3 -> 0.6: 視認性を向上 */
+}
+
+.text {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.6; /* 0.3 -> 0.6: 視認性を向上 */
+}
