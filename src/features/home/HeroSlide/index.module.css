@@ -1,21 +1,3 @@
-.hero {
-  position: relative;
-  width: 100%;
-}
-
-.imageWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-
-.slidesContainer {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
 .slide {
   position: relative;
   flex: 0 0 100%;
@@ -31,6 +13,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* 画像をドラッグしたときのブラウザ挙動を抑止 */
+  -webkit-user-drag: none;
 }
 
 .logoWrapper {
@@ -38,35 +22,40 @@
   top: 50%;
   transform: translateY(-50%);
   right: 40px;
-  width: 30%;
+  width: 35%;
   aspect-ratio: 3 / 1;
   z-index: 6;
+  transition: transform 0.8s ease-out;
+
+
+  &.isPlaying {
+    transform-origin: right bottom;
+    transform: scale(50%) translate(20px, 150%);
+
+  }
+  
 }
+
 
 .logoImage {
   object-fit: contain;
+  /* 画像をドラッグしたときのブラウザ挙動を抑止 */
+  -webkit-user-drag: none;
 }
 
-.dots {
+.videoWrapper {
   position: absolute;
-  bottom: 23px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: none;
-  background: #3F3F47;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.active {
-  background: #FDC700;
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

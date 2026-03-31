@@ -1,0 +1,95 @@
+.castWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.label {
+  margin-left: 28px;
+  font-size: 15px;
+  opacity: 0.5;
+}
+
+.rowWrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  z-index: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+}
+
+.iconWrapper:hover {
+  opacity: 1;
+}
+
+.left {
+  left: 0px;
+  background: linear-gradient(to right, #18181b 50%, transparent);
+}
+
+.right {
+  right: 0px;
+  background: linear-gradient(to left, #18181b 50%, transparent);
+}
+
+.peopleWrapper {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 28px;
+  scrollbar-width: 0px;
+  padding: 8px 28px;
+}
+
+.peopleWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.personWrapper {
+  flex-shrink: 0;
+  width: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;
+}
+
+.imageWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+  object-position: top;
+}
+
+.name {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.character {
+  font-size: 10px;
+  opacity: 0.6;
+  text-align: center;
+}

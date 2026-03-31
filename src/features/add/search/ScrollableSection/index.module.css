@@ -1,0 +1,51 @@
+.scrollableSection {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: #18181b;
+  width: 50px;
+  z-index: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.iconWrapper:hover {
+  opacity: 0.7;
+}
+
+.left {
+  left: 0px;
+  /* background: linear-gradient(to right, #18181b 40%, transparent); */
+}
+
+.right {
+  right: 0px;
+  /* background: linear-gradient(to left, #18181b 40%, transparent); */
+}
+
+
+.cardWrapper {
+  height: 35vh;
+  display: flex;
+  gap: 12px;
+  margin: 15px 0px 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 5%;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 5%;
+}
+
+.cardWrapper::-webkit-scrollbar {
+  display: none;
+}

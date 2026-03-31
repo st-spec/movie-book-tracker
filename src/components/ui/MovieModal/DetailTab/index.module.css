@@ -1,0 +1,11 @@
+.detailWrapper {
+  padding: 0px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  font-size: 13px;
+  opacity: 0.6;
+}

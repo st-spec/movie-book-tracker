@@ -3,6 +3,7 @@
   cursor: pointer;
   aspect-ratio: 2 / 3;
   transition: transform 0.2s ease-in-out;
+  scroll-snap-align: start;
 }
 
 .card:hover {
@@ -11,4 +12,5 @@
 
 .image {
   object-fit: cover;
+  border-radius: 5px;
 }

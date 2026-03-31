@@ -1,0 +1,37 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  border: 1.5px solid #FDC700;
+  margin: 10px 0;
+  border-radius: 16px;
+}
+
+.icon {
+  position: absolute;
+  color: #FDC700;
+  margin: 7px 0;
+}
+
+.searchIcon {
+  left: 10px;
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  height: 32px;
+  padding: 0px 40px; 
+  color: #FDC700;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.xButton {
+  right: 10px;
+  cursor: pointer;
+}
+

@@ -1,24 +1,16 @@
 import MovieCard from "@/components/ui/MovieCard"
+import { Movie } from "@/types/movie"
 import styles from "./index.module.css"
 
-const movies = [
-  { id: 1, imageUrl: "https://placehold.co/200x300" },
-  { id: 2, imageUrl: "https://placehold.co/200x300" },
-  { id: 3, imageUrl: "https://placehold.co/200x300" },
-  { id: 4, imageUrl: "https://placehold.co/200x300" },
-  { id: 5, imageUrl: "https://placehold.co/200x300" },
-  { id: 6, imageUrl: "https://placehold.co/200x300" },
-  { id: 7, imageUrl: "https://placehold.co/200x300" },
-  { id: 8, imageUrl: "https://placehold.co/200x300" },
-  { id: 9, imageUrl: "https://placehold.co/200x300" },
-  { id: 10, imageUrl: "https://placehold.co/200x300" }
-]
+type Props = {
+  movies: Movie[]
+}
 
-const MovieGrid = () => {
+const MovieGrid = ({movies}: Props) => {
   return (
     <div className={styles.grid}>
       {movies.map((movie) => (
-        <MovieCard key={movie.id} imageUrl={movie.imageUrl} />
+        <MovieCard key={movie.id} id={movie.id} imageUrl={movie.poster_path} onClick={()=>{}} />
       ))}
     </div>
   )
