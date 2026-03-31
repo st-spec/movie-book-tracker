@@ -61,12 +61,14 @@ const RecordTab = ({ movieId }: Props) => {
       <div className={styles.recordWrapper}>
         <div className={styles.rateWrapper}>
           <p className={styles.label}>評価</p>
-          {[1, 2, 3, 4, 5].map((rate: number) => (
-            <span 
-              key={rate} 
-              className={clsx((rate === rating) && styles.active)} 
-            >★</span>
-          ))}
+          <div className={styles.starWrapper}>
+            {[1, 2, 3, 4, 5].map((rate: number) => (
+              <span 
+                key={rate} 
+                className={styles.star} 
+              >{rate <= rating ? "★" : "☆"}</span>
+            ))}
+          </div>
         </div>
         <div className={styles.watchedDateWrapper}>
           <p className={styles.label}>鑑賞日</p>
@@ -79,27 +81,31 @@ const RecordTab = ({ movieId }: Props) => {
         <button className={styles.editButton} onClick={()=>{setIsEditing(true)}}>編集</button>
       </div>
     ) : (
-      <div className={styles.formWrapper}>
+      <div className={styles.recordWrapper}>
         <div className={styles.rateWrapper}>
           <p className={styles.label}>評価</p>
-          {[1, 2, 3, 4, 5].map((rate: number) => (
-            <button 
-              key={rate} 
-              className={clsx((rate <= rating) && styles.active)} 
-              onClick={()=>{setRating(rate)}}
-            >★</button>
-          ))}
+          <div className={styles.starWrapper}>
+            {[1, 2, 3, 4, 5].map((rate: number) => (
+              <button 
+                key={rate} 
+                className={styles.star} 
+                onClick={()=>{setRating(rate)}}
+              >{rate <= rating ? "★" : "☆"}</button>
+            ))}
+          </div>
         </div>
         <div className={styles.watchedDateWrapper}>
           <p className={styles.label}>鑑賞日</p>
-          <input type="date" className={styles.watchedDate} value={watchedDate} onChange={(e) => setWatchedDate(e.target.value)} />
+          <input type="date" className={styles.watchedDateInput} value={watchedDate} onChange={(e) => setWatchedDate(e.target.value)} />
         </div>
         <div className={styles.commentWrapper}>
           <p className={styles.label}>コメント</p>
-          <textarea className={styles.comment} value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+          <textarea className={styles.commentBox} value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
         </div>
-        <button className={styles.editButton} onClick={()=>{handleCancel()}}>キャンセル</button>
-        <button className={styles.editButton} onClick={()=>{handleSaveRecords()}}>登録</button>
+        <div className={styles.buttonWrapper}>
+          <button className={styles.cancelButton} onClick={()=>{handleCancel()}}>キャンセル</button>
+          <button className={styles.submitButton} onClick={()=>{handleSaveRecords()}}>登録</button>
+        </div>
       </div>
     )}
   </div>
