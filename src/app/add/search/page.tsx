@@ -1,4 +1,4 @@
-import Search from "@/features/add/search"
+import Search from "@/features/add/search/controller"
 
 export const dynamic = 'force-dynamic'
 

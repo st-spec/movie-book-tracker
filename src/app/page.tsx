@@ -1,4 +1,4 @@
-import HomePage from "@/features/home"
+import HomePage from "@/features/home/controller"
 
 export const dynamic = 'force-dynamic'
 
